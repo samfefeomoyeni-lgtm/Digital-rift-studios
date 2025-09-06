@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Rift Studios</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="images\1000352673.png" alt="Logo">
+        <span>Digital Rift Studios</span>
+      </div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="overlay">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear from you!</p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact-section">
+    <div class="contact-container">
+      <h2>Get in Touch</h2>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="user_name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="user_email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("Frg50W2m0SImLCTKR"); // 👈 paste your public key
+  })();
+
+  const form = document.getElementById("contact-form");
+  const popup = document.getElementById("popup");
+  const popupMessage = document.getElementById("popup-message");
+  const popupClose = document.getElementById("popup-close");
+
+  function showPopup(message, success = true) {
+    popupMessage.textContent = message;
+    popupMessage.style.color = success ? "#00ff88" : "#ff4444";
+    popup.style.display = "flex";
+  }
+
+  popupClose.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_nncmf2l", "template_e5x456a", this)
+      .then(() => {
+        showPopup("✅ Message sent successfully!");
+        form.reset();
+      }, (err) => {
+        showPopup("❌ Failed to send message. Please try again.", false);
+      });
+  });
+</script>
+
+  <!-- Popup Message -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span id="popup-message"></span>
+    <button id="popup-close">OK</button>
+  </div>
+</div>
+
+<!-- Footer -->
+  <footer>
+    <p>© 2025 Digital Rift Studios | All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
