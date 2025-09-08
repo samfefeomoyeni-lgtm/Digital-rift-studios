@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Digital Rift Studios</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2"><!-- cache-busting -->
 </head>
-<body>
+<body class="home">
   <!-- Navigation -->
   <header>
     <nav>
@@ -23,9 +23,8 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <video autoplay muted loop playsinline class="bg-video" poster="images/fallback.png">
+    <video autoplay muted loop playsinline class="bg-video" poster="image fallback/file_00000000aef0624380ca698b9190c804.png">
       <source src="videos/1000353458.mp4" type="video/mp4">
     </video>
     <div class="overlay">
@@ -62,5 +61,25 @@
   <footer>
     <p>© 2025 Digital Rift Studios</p>
   </footer>
+
+  <!-- JS fallback to hide nav on mobile -->
+  <script>
+    (function(){
+      function hideNavOnMobile() {
+        var isMobile = window.innerWidth <= 768;
+        var header = document.querySelector('header');
+        if (!header) return;
+        if (isMobile && document.body.classList.contains('home')) {
+          header.style.setProperty('display', 'none', 'important');
+          document.body.style.setProperty('padding-top', '0px', 'important');
+        } else {
+          header.style.removeProperty('display');
+          document.body.style.removeProperty('padding-top');
+        }
+      }
+      hideNavOnMobile();
+      window.addEventListener('resize', hideNavOnMobile);
+    })();
+  </script>
 </body>
 </html>
