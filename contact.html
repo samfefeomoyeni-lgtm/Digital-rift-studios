@@ -31,11 +31,21 @@
     </div>
   </section>
 
+  </header>
+
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <div class="overlay">
+      <h1>Contact Us</h1>
+      <p>We’d love to hear from you!</p>
+    </div>
+  </section>
+
   <!-- Contact Form Section -->
   <section class="contact-section">
     <div class="contact-container">
       <h2>Get in Touch</h2>
-      <form id="contact-form">
+      <form class="contact-form" action="https://formspree.io/f/xandaaby" method="POST">
         <div class="form-group">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="user_name" placeholder="Enter your name" required>
@@ -56,53 +66,28 @@
     </div>
   </section>
 
-  
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("Frg50W2m0SImLCTKR"); // 👈 paste your public key
-  })();
-
-  const form = document.getElementById("contact-form");
-  const popup = document.getElementById("popup");
-  const popupMessage = document.getElementById("popup-message");
-  const popupClose = document.getElementById("popup-close");
-
-  function showPopup(message, success = true) {
-    popupMessage.textContent = message;
-    popupMessage.style.color = success ? "#00ff88" : "#ff4444";
-    popup.style.display = "flex";
-  }
-
-  popupClose.addEventListener("click", () => {
-    popup.style.display = "none";
-  });
-
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    emailjs.sendForm("service_nncmf2l", "template_e5x456a", this)
-      .then(() => {
-        showPopup("✅ Message sent successfully!");
-        form.reset();
-      }, (err) => {
-        showPopup("❌ Failed to send message. Please try again.", false);
-      });
-  });
-</script>
-
-  <!-- Popup Message -->
-<div id="popup" class="popup">
-  <div class="popup-content">
-    <span id="popup-message"></span>
-    <button id="popup-close">OK</button>
-  </div>
-</div>
-
 <!-- Footer -->
   <footer>
     <p>© 2025 Digital Rift Studios | All rights reserved.</p>
   </footer>
+<script>
+  function toggleMenu() {
+    document.getElementById("nav-links").classList.toggle("show");
+    document.querySelector(".hamburger").classList.toggle("active");
+  }
+
+  // Close menu automatically when a link is clicked
+  document.querySelectorAll("#nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+      document.getElementById("nav-links").classList.remove("show");
+      document.querySelector(".hamburger").classList.remove("active");
+    });
+  });
+</script>
+
+</body>
+</html>
+
 
 </body>
 </html>
