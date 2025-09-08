@@ -10,9 +10,17 @@
   <!-- Navbar -->
   <header>
     <div class="logo">
-      <img src="images\1000352673.png" alt="Nexa Logo">
+      <img src="images/1000352673.png" alt="Nexa Logo">
       <h1>Digital Rift Studios</h1>
     </div>
+
+    <!-- Hamburger menu button (visible on mobile) -->
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -36,8 +44,7 @@
     <div class="game-card">
       <h2>Grand Football City</h2>
       <div class="trailer">
-         <video src="videos\1000353431.mp4" controls></video>
-      </div>
+        <video src="videos/1000353431.mp4" controls></video>
       </div>
       <p>Step into an open-world football experience like never before.</p>
       <div class="downloads">
@@ -49,7 +56,7 @@
     <div class="game-card">
       <h2>Next Lap</h2>
       <div class="trailer">
-        <video src="videos\1000353431.mp4" controls></video>
+        <video src="videos/1000353431.mp4" controls></video>
       </div>
       <p>A realistic racing journey where your legacy continues through generations. High-speed futuristic racing tracks.</p>
       <div class="downloads">
@@ -66,7 +73,7 @@
 
       <a href="coming-battleverse.html" class="soon-link">
         <div class="soon-card">
-          <img src="images\1000354634.png" alt="Future Game 1">
+          <img src="images/1000354634.png" alt="Future Game 1">
           <h3>Grand Football City</h3>
           <p>An open-world football experience like never before.</p>
           <span class="tag">Coming 2030</span>
@@ -75,18 +82,18 @@
 
       <a href="coming-shadowrealms.html" class="soon-link">
         <div class="soon-card">
-          <img src="images\Logo of Grand Sport City.png" alt="Future Game 2">
+          <img src="images/Logo of Grand Sport City.png" alt="Future Game 2">
           <h3>Grand Sport City</h3>
-          <p>choosing a career in an open world gameplay.</p>
+          <p>Choosing a career in an open world gameplay.</p>
           <span class="tag">Coming Soon</span>
         </div>
       </a>
 
       <a href="coming-cyberdrift.html" class="soon-link">
         <div class="soon-card">
-          <img src="images\Sport City.png" alt="Future Game 3">
+          <img src="images/Sport City.png" alt="Future Game 3">
           <h3>Grand Sport City 2</h3>
-          <p>choosing a sport career in an open-world experience</p>
+          <p>Choosing a sport career in an open-world experience</p>
           <span class="tag">Coming soon</span>
         </div>
       </a>
@@ -98,5 +105,16 @@
   <footer>
     <p>© 2025 Digital Rift Studios | All Rights Reserved.</p>
   </footer>
+
+  <!-- JS for hamburger menu -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active');
+      hamburger.classList.toggle('open');
+    });
+  </script>
 </body>
 </html>
