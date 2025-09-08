@@ -22,30 +22,56 @@ header {
   top: 0;
   z-index: 100;
 }
+/* Navbar for PC */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
-nav .logo {
-  font-size: 24px;
-  font-weight: bold;
-  color: #00ffea;
-}
+
 nav ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 20px;
 }
+
 nav ul li a {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  transition: 0.3s;
+  font-size: 18px;
+  transition: color 0.3s ease;
 }
-nav ul li a:hover,
-nav ul li a.active {
-  color: #00ffea;
+
+nav ul li a:hover {
+  color: #ff4444;
 }
+
+/* ✅ Fix for smaller screens */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+
 
 /* Hero Section with Video */
 .hero {
