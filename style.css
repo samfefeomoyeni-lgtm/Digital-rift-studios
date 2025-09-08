@@ -189,24 +189,10 @@ footer {
   100% { box-shadow: 0 0 10px rgba(0,255,234,0.3); }
 }
 
-/* ✅ Mobile Fixes */
+/* ✅ Mobile Fix: Remove nav completely */
 @media (max-width: 768px) {
   nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav ul {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
-    width: 100%;
-  }
-
-  nav ul li a {
-    font-size: 16px;
-    padding: 8px 0;
-    display: block;
+    display: none;
   }
 
   .hero h1 {
